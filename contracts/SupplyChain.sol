@@ -84,7 +84,10 @@ contract SupplyChain {
    */
 
     modifier forSale(uint256 sku) {
-        require(items[sku].state == State.ForSale); // && items[sku].seller != address(0x0)
+        require(
+            items[sku].state == State.ForSale &&
+                items[sku].seller != address(0x0)
+        );
         _;
     }
 
